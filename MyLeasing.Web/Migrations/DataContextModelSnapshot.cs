@@ -45,7 +45,7 @@ namespace MyLeasing.Web.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("PropertyId")
+                    b.Property<int?>("PropertyId")
                         .HasColumnType("int");
 
                     b.Property<string>("Remarks")
@@ -261,9 +261,7 @@ namespace MyLeasing.Web.Migrations
 
                     b.HasOne("MyLeasing.Web.Data.Entities.Property", "Property")
                         .WithMany("Contracts")
-                        .HasForeignKey("PropertyId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PropertyId");
 
                     b.Navigation("Lessee");
 

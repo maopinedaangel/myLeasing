@@ -12,7 +12,7 @@ using MyLeasing.Web.Data;
 namespace MyLeasing.Web.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230526154917_CompleteDB")]
+    [Migration("20230529200901_CompleteDB")]
     partial class CompleteDB
     {
         /// <inheritdoc />
@@ -48,7 +48,7 @@ namespace MyLeasing.Web.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("PropertyId")
+                    b.Property<int?>("PropertyId")
                         .HasColumnType("int");
 
                     b.Property<string>("Remarks")
@@ -264,9 +264,7 @@ namespace MyLeasing.Web.Migrations
 
                     b.HasOne("MyLeasing.Web.Data.Entities.Property", "Property")
                         .WithMany("Contracts")
-                        .HasForeignKey("PropertyId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PropertyId");
 
                     b.Navigation("Lessee");
 

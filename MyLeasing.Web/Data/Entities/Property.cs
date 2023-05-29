@@ -34,12 +34,12 @@ namespace MyLeasing.Web.Data.Entities
         public int Stratum { get; set; }
 
         [Display(Name = "Has Parking Lot?")]
-        public bool HasParkingLot { get; set; }
+        public bool? HasParkingLot { get; set; }
 
         [Display(Name = "Is Available?")]
-        public bool IsAvailable { get; set; }
+        public bool? IsAvailable { get; set; }
 
-        public string Remarks { get; set; }
+        public string? Remarks { get; set; }
 
         public PropertyType PropertyType { get; set; }
 
